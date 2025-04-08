@@ -43,6 +43,6 @@ jobs:
       # Step 5: Tag and push Docker images to ECR
       - name: Push Docker image
         run: |
-          ECR_URI=$(aws ecr describe-repositories --repository-name flask-app --query 'repositories[0].repositoryUri' --output text)
+          ECR_URI=$(aws ecr describe-repositories --repository-name python/flask-app --query 'repositories[0].repositoryUri' --output text)
           docker tag patient-service:latest $ECR_URI:latest
           docker push $ECR_URI:latest
