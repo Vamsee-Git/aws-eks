@@ -1,6 +1,5 @@
-# ------------------------------
 # VPC Variables
-# ------------------------------
+
 variable "vpc_cidr" {
   description = "CIDR block for the VPC"
   type        = string
@@ -22,15 +21,12 @@ variable "private_subnets" {
 variable "availability_zones" {
   description = "List of availability zones"
   type        = list(string)
-  default     = ["us-east-1a", "us-east-1b"]
+  default     = ["ap-south-1a", "ap-south-1b"]
 }
 
 
-# In the variables.tf of the EKS module
 
-# ------------------------------
 # EKS Cluster Variables
-# ------------------------------
 variable "cluster_name" {
   description = "Name of the EKS cluster"
   type        = string
