@@ -57,4 +57,4 @@ variable "max_size" {
 variable "flaskapp_image"{
   description = "Docker image URI of flaskapp"
   type        = string
-
+}
