@@ -7,4 +7,4 @@ instance_types = ["t3.medium"]
 desired_size   = 2
 min_size       = 1
 max_size       = 3
-flask_image = "664418994073.dkr.ecr.ap-south-1.amazonaws.com/python/flask-app:latest"
+flaskapp_image = "664418994073.dkr.ecr.ap-south-1.amazonaws.com/python/flask-app:latest"
