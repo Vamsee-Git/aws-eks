@@ -1,0 +1,48 @@
+name: Build and Push Docker Images to ECR
+
+on: workflow_dispatch
+
+permissions:
+  contents: read
+  pull-requests: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Check out the code
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Set up AWS credentials
+      - name: Configure AWS credentials using OIDC
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: arn:aws:iam::664418994073:role/oidc-github-newrole
+          aws-region: ap-south-1
+          id-token: true
+            
+            
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+        
+
+      # Step 3: Log in to Amazon ECR
+      - name: Log in to Amazon ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+
+      # Step 4: Build Docker images for microservices
+      - name: Build Docker image
+        run: |
+          cd App/
+          docker build -t flask-app-image .
+          
+      # Step 5: Tag and push Docker images to ECR
+      - name: Push Docker image
+        run: |
+          ECR_URI=$(aws ecr describe-repositories --repository-name flask-app --query 'repositories[0].repositoryUri' --output text)
+          docker tag patient-service:latest $ECR_URI:latest
+          docker push $ECR_URI:latest
