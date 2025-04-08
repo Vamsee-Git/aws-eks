@@ -1,7 +1,7 @@
 # Building a RESTful API with Python Flask and Swagger: A Comprehensive Guide
 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python" height="50"/> <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Flask_logo.svg" alt="Flask" height="50"/> <img src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Swagger-logo.png" alt="Swagger" height="50"/>
 
-Set up your Flask app to seamlessly integrating Swagger for documentation and API testing, this guide provides a step-by-step walkthrough. Learn best practices for structuring your API, documenting endpoints with Swagger annotations, and leveraging the power of Flask to create a scalable and maintainable application. Whether you're a seasoned developer or just getting started with APIs, this article will equip you with the knowledge to build, document, and run APIs with confidence using Flask and Swagger.
+Set up your Flask app to seamlessly integrating Swagger for documentation and API testing, this guide provides a step-by-step walkthrough. Learn best practices for structuring your API, documenting endpoints with Swagger annotations, and leveraging the power of Flask to create a scalable and maintainable application. Whether you're a seasoned developer or just getting started with APIs, this article will equip you with the knowledge to build, document, and run APIs with confidence using Flask and Swagger
 
 ---
 
