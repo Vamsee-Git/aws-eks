@@ -28,5 +28,5 @@ module "eks" {
   desired_size     = var.desired_size
   min_size         = var.min_size
   max_size         = var.max_size
-  flask_image        = var.patient_image
+#  flask_image        = var.patient_image
 }
