@@ -35,54 +35,55 @@ resource "aws_security_group" "eks_sg" {
     Name = "eks-cluster-sg"
   }
 }
-/* resource "kubernetes_deployment" "Patientdeployment" {
+resource "kubernetes_deployment" "flaskapp-deployment" {
   metadata {
-    name      = "patient-deployment"
+    name      = "flaskapp-deployment"
     namespace = "default"
   }
   spec {
     replicas = 1
     selector {
       match_labels = {
-        app = "patient-deployment"  # Ensure this matches the service selector
+        app = "flaskapp"  # Ensure this matches the service selector
       }
     }
     template {
       metadata {
         labels = {
-          app = "patient-deployment"
+          app = "flaskapp"
         }
       }
       spec {
         container {
           name  = "patient-container"
-          image = var.patient_image
+          image = var.flaskapp_image
           port {
-            container_port = 3000
+            container_port = 5000
           }
         }
       }
     }
   }
-}*/
+}
 
-/*resource "kubernetes_service" "PatientService" {
+resource "kubernetes_service" "flask-service" {
   metadata {
-    name      = "patient-service"
+    name      = "flask-service"
     namespace = "default"
   }
   spec {
     selector = {
-      app = "patient-deployment"  # Update to match the deployment label
+      app = "flaskapp"  # Update to match the deployment label
     }
     port {
       protocol   = "TCP"
-      port       = 3000
-      target_port = 3000
+      port       = 5000
+      target_port = 5000
     }
     type = "LoadBalancer"
   }
-}*/
+}
+
 resource "aws_eks_cluster" "eks" {
   name     = var.cluster_name
   role_arn = var.eks_cluster_role_arn
