@@ -55,7 +55,7 @@ resource "kubernetes_deployment" "flaskapp-deployment" {
       }
       spec {
         container {
-          name  = "patient-container"
+          name  = "flaskapp-container"
           image = var.flaskapp_image
           port {
             container_port = 5000
