@@ -55,15 +55,3 @@ variable "max_size" {
 }
 
 
-# In the variables.tf of the EKS module
-
-variable "patient_image" {
-  description = "The URL of the Appointment service Docker image in ECR"
-  type        = string
-}
-
-variable "appointment_image" {
-  description = "The URL of the Appointment service Docker image in ECR"
-  type        = string
-}
-
