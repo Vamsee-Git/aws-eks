@@ -25,14 +25,6 @@ variable "availability_zones" {
   default     = ["us-east-1a", "us-east-1b"]
 }
 
-# ------------------------------
-# ECR Variables
-# ------------------------------
-variable "repo_name" {
-  description = "ECR repository name"
-  type        = string
-}
-
 
 # In the variables.tf of the EKS module
 
